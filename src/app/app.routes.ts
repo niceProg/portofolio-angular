@@ -23,10 +23,12 @@ export const appRoutes: Routes = [
           import('./features/projects/projects.component').then(
             (m) => m.ProjectsComponent
           ),
-      },
-      {
-        path: 'projects/:id', // sementara arahkan ke NotFoundComponent
-        component: NotFoundComponent,
+        children: [
+          {
+            path: 'not-found',
+            component: NotFoundComponent,
+          },
+        ],
       },
     ],
   },
