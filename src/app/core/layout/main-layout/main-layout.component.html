@@ -1,0 +1,28 @@
+<!-- Layout wrapper utama -->
+<div class="relative min-h-screen bg-web3blue text-web3white overflow-x-hidden">
+	<!-- Konten Utama -->
+	<div class="relative z-10 flex flex-col min-h-screen">
+		<app-header></app-header>
+
+		<main class="flex-grow px-4">
+			<router-outlet></router-outlet>
+		</main>
+
+		<app-footer></app-footer>
+	</div>
+
+	<!-- ✨ 3D Glow Background -->
+	<div class="absolute inset-0 z-30 pointer-events-none overflow-hidden">
+		<div class="absolute w-[500px] h-[500px] bg-accent/20 rounded-full blur-3xl animate-pulse-slow -top-32 -left-32"></div>
+		<div
+			class="absolute w-[400px] h-[400px] bg-indigo-400/10 rounded-full blur-3xl animate-pulse-slow -bottom-32 -right-20">
+		</div>
+	</div>
+
+	<!-- 🔼 Scroll to Top Button -->
+	<button (click)="scrollToTop()"
+		class="fixed bottom-6 right-6 z-40 bg-accent text-white p-3 rounded-full shadow-lg hover:bg-accent/80 transition-opacity duration-300"
+		[class.opacity-0]="!showScrollTop" [class.pointer-events-none]="!showScrollTop">
+		↑
+	</button>
+</div>
