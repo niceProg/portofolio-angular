@@ -30,6 +30,13 @@ export const appRoutes: Routes = [
           },
         ],
       },
+      {
+        path: 'certificates',
+        loadComponent: () =>
+          import('./features/certificates/certificates.component').then(
+            (m) => m.CertificatesComponent
+          ),
+      },
     ],
   },
   {

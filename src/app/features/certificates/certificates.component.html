@@ -1,0 +1,40 @@
+<section class="max-w-6xl mx-auto px-4 py-12 animate-fade-in">
+	<h2 class="text-3xl font-extrabold text-accent text-center mb-8">Certificates</h2>
+
+	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+		<!-- Certificate Card -->
+		<div *ngFor="let cert of certificates; let i = index"
+			class="bg-[#1E293B] rounded-lg overflow-hidden shadow-md hover:shadow-accent transform hover:scale-105 transition duration-300 cursor-pointer"
+			(click)="openModal(i)">
+			<img [src]="cert.images[0]" [alt]="cert.title" class="w-full h-48 object-cover" />
+			<div class="p-4">
+				<h3 class="text-lg font-semibold text-white">{{ cert . title }}</h3>
+				<p class="text-sm text-white/60">{{ cert . issuer }} · {{ cert . year }}</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 🪟 Modal -->
+	<div *ngIf="showModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center"
+		(click)="closeModal()">
+		<div class="bg-[#0F172A] max-w-4xl w-full rounded-lg overflow-hidden shadow-xl relative p-6"
+			(click)="$event.stopPropagation()">
+			<!-- Close button -->
+			<button (click)="closeModal()" class="absolute top-5 right-8 text-red-600 text-4xl font-bold">&times;</button>
+
+			<!-- Main Certificate Image -->
+			<img *ngIf="!isFading" [src]="currentImage"
+				class="transition-opacity duration-300 ease-in-out rounded-lg max-w-full max-h-[80vh] mx-auto opacity-100" />
+			<img *ngIf="isFading" [src]="currentImage"
+				class="transition-opacity duration-300 ease-in-out rounded-lg max-w-full max-h-[80vh] mx-auto opacity-0" />
+
+			<!-- Thumbnails -->
+			<div class="flex justify-center gap-2 mt-4">
+				<img *ngFor="let img of certificates[selectedIndex].images" [src]="img"
+					(click)="updateMainImage(selectedIndex, img)" [class.border-accent]="img === currentImage"
+					[class.opacity-70]="img !== currentImage"
+					class="w-16 h-12 object-cover cursor-pointer border-2 transition-opacity duration-300" />
+			</div>
+		</div>
+	</div>
+</section>
