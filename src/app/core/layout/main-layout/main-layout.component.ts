@@ -5,6 +5,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { VisitorService } from '../../services/visitor.service';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
+import reportWebVitals from '@vercel/speed-insights';
 
 @Component({
   selector: 'app-main-layout',
@@ -25,6 +26,8 @@ export class MainLayoutComponent implements OnInit {
       await this.visitorService.countUniqueVisit();
       const count = await this.visitorService.getVisitorCount();
       this.visitorCount.set(count);
+
+      reportWebVitals.injectSpeedInsights();
     }
   }
 
