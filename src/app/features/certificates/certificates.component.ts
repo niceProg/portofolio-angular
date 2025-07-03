@@ -15,23 +15,10 @@ export class CertificatesComponent {
 
   certificates = [
     {
-      title: 'MSIB Kampus Merdeka',
-      issuer: 'PT Central Artificial Intelligence',
-      year: '2022',
-      images: [
-        '/assets/certificates/msib/image_1.png',
-        '/assets/certificates/msib/image_2.png',
-        '/assets/certificates/msib/image_3.png',
-        '/assets/certificates/msib/image_4.png',
-      ],
-    },
-    {
-      title: 'IT Essentials',
-      issuer: 'Cisco Network Academy',
-      year: '2020',
-      images: [
-        '/assets/certificates/cisco/image.png',
-      ],
+      title: 'Introduciton to DevOps: Roadmap to DevOps Career',
+      issuer: 'Udemy',
+      year: '2025',
+      images: ['/assets/certificates/udemy/image.png'],
     },
     {
       title: 'DevOps Basics',
@@ -43,76 +30,69 @@ export class CertificatesComponent {
       ],
     },
     {
-      title: 'HCIA-Cloud Computing V4.0 Course',
-      issuer: 'Huawei',
+      title: 'MSIB Kampus Merdeka',
+      issuer: 'PT Central Artificial Intelligence',
       year: '2022',
       images: [
-        '/assets/certificates/huawei/image.png',
+        '/assets/certificates/msib/image_1.png',
+        '/assets/certificates/msib/image_2.png',
+        '/assets/certificates/msib/image_3.png',
+        '/assets/certificates/msib/image_4.png',
       ],
     },
     {
-      title: 'Introduciton to DevOps: Roadmap to DevOps Career',
-      issuer: 'Udemy',
-      year: '2025',
-      images: [
-        '/assets/certificates/udemy/image.png',
-      ],
+      title: 'HCIA-Cloud Computing V4.0 Course',
+      issuer: 'Huawei',
+      year: '2022',
+      images: ['/assets/certificates/huawei/image.png'],
     },
     {
       title: 'Machine Learning',
       issuer: 'Bisa.ai Academy',
       year: '2022',
-      images: [
-        '/assets/certificates/bisaai/machine_learning.png',
-      ],
+      images: ['/assets/certificates/bisaai/machine_learning.png'],
     },
     {
       title: 'Nodejs Basics',
       issuer: 'Bisa.ai Academy',
       year: '2022',
-      images: [
-        '/assets/certificates/bisaai/nodejs_basics.png',
-      ],
+      images: ['/assets/certificates/bisaai/nodejs_basics.png'],
     },
     {
       title: 'Python Basics',
       issuer: 'Bisa.ai Academy',
       year: '2022',
-      images: [
-        '/assets/certificates/bisaai/python_basics.png',
-      ],
+      images: ['/assets/certificates/bisaai/python_basics.png'],
     },
     {
       title: 'Application Of AI Business',
       issuer: 'Speaker In The Webinar',
       year: '2022',
-      images: [
-        '/assets/certificates/centralai/speaker_1.png',
-      ],
+      images: ['/assets/certificates/centralai/speaker_1.png'],
     },
     {
       title: 'Introduction To Image Processing',
       issuer: 'Speaker In The Webinar',
       year: '2022',
-      images: [
-        '/assets/certificates/centralai/speaker_2.png',
-      ],
+      images: ['/assets/certificates/centralai/speaker_2.png'],
     },
     {
       title: 'Introduction To Web Accessibility Wcag 2.1',
       issuer: 'Speaker In The Webinar',
       year: '2022',
-      images: [
-        '/assets/certificates/centralai/speaker_3.png',
-      ],
+      images: ['/assets/certificates/centralai/speaker_3.png'],
     },
     {
       title: 'Learn More About The Industrial Revolution',
       issuer: 'Speaker In The Webinar',
       year: '2022',
-      images: [
-        '/assets/certificates/centralai/speaker_4.png',
-      ],
+      images: ['/assets/certificates/centralai/speaker_4.png'],
+    },
+    {
+      title: 'IT Essentials',
+      issuer: 'Cisco Network Academy',
+      year: '2020',
+      images: ['/assets/certificates/cisco/image.png'],
     },
   ];
 
