@@ -1,0 +1,30 @@
+<!-- 💬 Floating Button -->
+<button (click)="toggleChat()" class="bg-accent p-4 rounded-full shadow-lg hover:scale-110 transition-all">
+	<svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+		<path
+			d="M12 3C7.03 3 3 6.58 3 11c0 1.61.61 3.09 1.64 4.33L3 21l6.14-1.7c.93.26 1.91.4 2.86.4 4.97 0 9-3.58 9-8s-4.03-9-9-9z" />
+	</svg>
+</button>
+
+<!-- 🪟 Chat Popup -->
+<div *ngIf="showChat()"
+	class="absolute bottom-16 right-0 w-80 bg-[#0f172a] text-white rounded-xl shadow-2xl overflow-hidden animate-fade-in">
+	<div class="p-4 border-b border-white/10 flex justify-between items-center">
+		<h3 class="font-semibold">Wisnu AI Assistant</h3>
+		<button (click)="toggleChat()" class="text-lg font-bold hover:text-red-400 transition">&times;</button>
+	</div>
+
+	<div #chatMessages class="overflow-y-auto max-h-72 p-4 space-y-3 text-sm bg-[#1e293b]">
+		<div *ngFor="let msg of conversation()">
+			<p><span class="text-accent font-medium">You:</span> {{ msg . user }}</p>
+			<p><span class="text-green-400 font-medium">AI:</span> {{ msg . bot }}</p>
+		</div>
+	</div>
+
+	<form (submit)="send()" class="flex p-2 gap-2 border-t border-white/10 bg-[#0f172a]">
+		<input [(ngModel)]="input" name="input"
+			class="flex-grow bg-white/10 px-3 py-2 rounded text-white placeholder-white/60 focus:outline-none text-sm"
+			placeholder="Type a message..." />
+		<button type="submit" class="bg-accent px-3 py-2 rounded hover:bg-accent/80 transition">Send</button>
+	</form>
+</div>
