@@ -1,14 +1,3 @@
-// import {
-//   Inject,
-//   inject,
-//   runInInjectionContext,
-//   effect,
-//   Component,
-//   ElementRef,
-//   ViewChild,
-//   signal,
-//   AfterViewInit,
-// } from '@angular/core';
 import {
   Injector,
   inject,
@@ -18,9 +7,8 @@ import {
   ElementRef,
   ViewChild,
   signal,
-  AfterViewInit
+  AfterViewInit,
 } from '@angular/core';
-
 import { ChatbotService } from '../../core/services/chatbot.service';
 import { NgIf, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -33,66 +21,91 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './chatbot.component.css',
 })
 export class ChatbotComponent implements AfterViewInit {
+  /* ------------ UI & state signals ------------ */
   input = '';
   showChat = signal(false);
   conversation = signal<{ user: string; bot: string }[]>([]);
+  typingBuffer = signal(''); // teks yang sedang “diketik”
+  isTyping = signal(false); // flag “AI is typing …”
 
   @ViewChild('chatMessages')
   private chatMessagesRef!: ElementRef<HTMLDivElement>;
-
   private readonly chatbot = inject(ChatbotService);
 
+  /* ------------ Constructor: scroll observers ------------ */
   constructor() {
     const injector = inject(Injector);
-
     runInInjectionContext(injector, () => {
       effect(() => {
-        this.conversation(); // observe perubahan
-        setTimeout(() => this.scrollToBottom(), 100);
+        this.conversation(); // scroll ketika pesan baru
+        setTimeout(() => this.scrollToBottom(), 80);
       });
-
       effect(() => {
-        this.showChat(); // observe toggle chat
-        setTimeout(() => this.scrollToBottom(), 100);
+        this.showChat(); // scroll ketika jendela dibuka
+        setTimeout(() => this.scrollToBottom(), 80);
       });
     });
   }
 
-  ngAfterViewInit(): void {
-    // kosongkan, karena effect sudah aman di constructor injection context
-  }
+  ngAfterViewInit() {} /* semua effect di‑handle di constructor */
 
+  /* ------------ Public methods ------------ */
   toggleChat() {
-    this.showChat.update((s) => !s);
+    this.showChat.update((v) => !v);
   }
 
   async send() {
     const userMessage = this.input.trim();
     if (!userMessage) return;
 
-    this.input = '';
+    /* tampilkan pesan user dulu */
     this.conversation.update((c) => [...c, { user: userMessage, bot: '...' }]);
+    this.input = '';
 
+    /* panggil backend */
     try {
+      this.isTyping.set(true);
       const res = await this.chatbot.askGemini(userMessage).toPromise();
+      const fullReply = res?.reply || '(no response)';
+
+      /* animasi ketik karakter per karakter */
+      await this.typeReply(fullReply);
+
+      /* ganti ‘…’ dengan hasil final */
       this.conversation.update((c) => {
         const updated = [...c];
-        updated[updated.length - 1].bot = res?.reply || '(no response)';
+        updated[updated.length - 1].bot = fullReply;
         return updated;
       });
-    } catch {
+    } catch (err) {
       this.conversation.update((c) => {
         const updated = [...c];
         updated[updated.length - 1].bot = '⚠️ Failed to fetch response.';
         return updated;
       });
+    } finally {
+      this.isTyping.set(false);
+      this.typingBuffer.set('');
     }
   }
 
+  /* ------------ Helpers ------------ */
+  /** animasi mengetik; resolve ketika selesai */
+  private typeReply(text: string, speed = 30): Promise<void> {
+    return new Promise((resolve) => {
+      let i = 0;
+      const timer = setInterval(() => {
+        this.typingBuffer.set(text.slice(0, ++i));
+        if (i >= text.length) {
+          clearInterval(timer);
+          resolve();
+        }
+      }, speed);
+    });
+  }
+
   private scrollToBottom() {
-    const container = this.chatMessagesRef?.nativeElement;
-    if (container) {
-      container.scrollTop = container.scrollHeight;
-    }
+    const el = this.chatMessagesRef?.nativeElement;
+    if (el) el.scrollTop = el.scrollHeight;
   }
 }

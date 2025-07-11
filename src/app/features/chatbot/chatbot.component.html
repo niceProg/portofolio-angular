@@ -15,10 +15,24 @@
 	</div>
 
 	<div #chatMessages class="overflow-y-auto max-h-72 p-4 space-y-3 text-sm bg-[#1e293b]">
-		<div *ngFor="let msg of conversation()">
-			<p><span class="text-accent font-medium">You:</span> {{ msg . user }}</p>
-			<p><span class="text-green-400 font-medium">AI:</span> {{ msg . bot }}</p>
-		</div>
+		<ng-container *ngFor="let msg of conversation(); let last = last">
+			<!-- 💬 USER -->
+			<div class="flex justify-end">
+				<div class="bg-green-500 text-white px-4 py-2 rounded-2xl rounded-br-none max-w-[75%] text-sm shadow">
+					{{ msg . user }}
+				</div>
+			</div>
+
+			<!-- 🤖 BOT -->
+			<div class="flex justify-start">
+				<div class="bg-gray-700 text-white px-4 py-2 rounded-2xl rounded-bl-none max-w-[75%] text-sm shadow">
+					<ng-container *ngIf="last && isTyping(); else finalText">
+						{{ typingBuffer() }}<span class="animate-pulse">█</span>
+					</ng-container>
+					<ng-template #finalText>{{ msg . bot }}</ng-template>
+				</div>
+			</div>
+		</ng-container>
 	</div>
 
 	<form (submit)="send()" class="flex p-2 gap-2 border-t border-white/10 bg-[#0f172a]">
