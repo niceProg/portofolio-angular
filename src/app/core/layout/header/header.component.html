@@ -1,16 +1,21 @@
-<header class="w-full bg-web3blue text-web3white shadow-md px-8 py-5 flex justify-end items-center">
-	<!-- <a routerLink="/" class="text-xl font-bold text-accent">Wisnu.dev</a> -->
-	<nav class="space-x-6 text-sm md:text-base ">
-		<a routerLink="/" routerLinkActive="text-accent" [routerLinkActiveOptions]="{ exact: true }" class="hover:text-accent">
+<header
+	[ngClass]="{
+    'bg-web3blue/90 backdrop-blur-md shadow-md py-4': isScrolled(),
+    'bg-transparent py-6': !isScrolled()
+  }"
+	class="w-full fixed top-0 left-0 z-50 text-web3white transition-all duration-300 ease-in-out px-8">
+	<nav class="space-x-6 text-sm md:text-base flex justify-end items-center">
+		<a routerLink="/" routerLinkActive="text-accent" [routerLinkActiveOptions]="{ exact: true }"
+			class="hover:text-accent transition">
 			Home
 		</a>
-		<a routerLink="/about" routerLinkActive="text-accent" class="hover:text-accent">
+		<a routerLink="/about" routerLinkActive="text-accent" class="hover:text-accent transition">
 			About
 		</a>
-		<a routerLink="/projects" routerLinkActive="text-accent" class="hover:text-accent">
+		<a routerLink="/projects" routerLinkActive="text-accent" class="hover:text-accent transition">
 			Projects
 		</a>
-		<a routerLink="/certificates" routerLinkActive="text-accent" class="hover:text-accent">
+		<a routerLink="/certificates" routerLinkActive="text-accent" class="hover:text-accent transition">
 			Certificates
 		</a>
 	</nav>
