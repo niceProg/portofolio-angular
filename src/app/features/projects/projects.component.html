@@ -1,124 +1,77 @@
 <section class="max-w-6xl mx-auto px-6 py-12 space-y-12 animate-fade-in">
-	<h2 class="text-3xl font-extrabold text-accent tracking-wide text-center mb-8">
-		My Projects
-	</h2>
+  <h2
+    class="text-3xl font-extrabold text-accent tracking-wide text-center mb-8"
+  >
+    My Projects
+  </h2>
 
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-		<!-- Project Card 1 -->
-		<div
-			class="bg-[#1E293B] rounded-xl overflow-hidden shadow-md hover:shadow-accent transition duration-300 flex flex-col justify-between">
-			<img src="/assets/projects/attendance/image.png" alt="Absensi Karyawan" class="w-full h-52 object-cover" />
-			<div class="p-6 space-y-2 flex-grow">
-				<h3 class="text-xl font-semibold text-web3white">Employee Attendance Application</h3>
-				<p class="text-sm text-web3white/60">Thesis Project · 2023</p>
-				<p class="text-web3white line-clamp-3">
-					Digital attendance using Face Recognition & GPS, complete with dashboard and automatic report export.
-				</p>
-			</div>
-			<div class="px-6 pb-6">
-				<a routerLink="/projects/not-found" class="text-accent text-sm hover:underline">Read more →</a>
-			</div>
-		</div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div
+      *ngFor="let project of pagedProjects"
+      class="bg-[#1E293B] rounded-xl overflow-hidden shadow-md hover:shadow-accent transition duration-300 flex flex-col justify-between"
+    >
+      <img
+        [src]="project.image"
+        [alt]="project.alt"
+        class="w-full h-52 object-cover"
+      />
+      <div class="p-6 space-y-2 flex-grow">
+        <h3 class="text-xl font-semibold text-web3white">
+          {{ project.title }}
+        </h3>
+        <p class="text-sm text-web3white/60">
+          {{ project.type }} · {{ project.year }}
+        </p>
+        <p class="text-web3white line-clamp-3">
+          {{ project.description }}
+        </p>
+      </div>
+      <div
+        class="px-6 pb-6 flex justify-between items-center text-sm"
+        *ngIf="project.liveUrl; else onlyReadMore"
+      >
+        <a [routerLink]="project.readMore" class="text-accent hover:underline">
+          Read more →
+        </a>
+        <a
+          [href]="project.liveUrl"
+          target="_blank"
+          rel="noopener"
+          class="text-accent hover:underline flex items-center gap-1"
+        >
+          🔗 Live Website
+        </a>
+      </div>
+      <ng-template #onlyReadMore>
+        <div class="px-6 pb-6">
+          <a
+            [routerLink]="project.readMore"
+            class="text-accent text-sm hover:underline"
+            >Read more →</a
+          >
+        </div>
+      </ng-template>
+    </div>
+  </div>
 
-		<!-- Project Card 2 -->
-		<div
-			class="bg-[#1E293B] rounded-xl overflow-hidden shadow-md hover:shadow-accent transition duration-300 flex flex-col justify-between">
-			<img src="/assets/projects/dupcek/image.png" alt="Deteksi Duplikat" class="w-full h-52 object-cover" />
-			<div class="p-6 space-y-2 flex-grow">
-				<h3 class="text-xl font-semibold text-web3white">Duplicate Sentence & Document Detector</h3>
-				<p class="text-sm text-web3white/60">Plagiarism Detection Tool · 2024</p>
-				<p class="text-web3white line-clamp-3">
-					Django & Sastrawi based duplicate sentence detection application, generates similarity percentage and reference
-					sources automatically.
-				</p>
-			</div>
-			<div class="px-6 pb-6">
-				<a routerLink="/projects/not-found" class="text-accent text-sm hover:underline">Read more →</a>
-			</div>
-		</div>
-
-		<!-- Project Card 3 -->
-		<div
-			class="bg-[#1E293B] rounded-xl overflow-hidden shadow-md hover:shadow-accent transition duration-300 flex flex-col justify-between">
-			<img src="/assets/projects/blogme/image.png" alt="Blog Me" class="w-full h-52 object-cover" />
-			<div class="p-6 space-y-2 flex-grow">
-				<h3 class="text-xl font-semibold text-web3white">Personal Blog</h3>
-				<p class="text-sm text-web3white/60">Personal Blog with Next.js & Sanity CMS · 2024</p>
-				<p class="text-web3white line-clamp-3">
-					A personal blog site built with Next.js (TypeScript) and powered by Sanity CMS for flexible and structured content
-					management.
-				</p>
-			</div>
-			<div class="px-6 pb-6 flex justify-between items-center text-sm">
-				<!-- 🡒 Read More (internal router) -->
-				<a routerLink="/projects/not-found" class="text-accent text-sm hover:underline">Read more →</a>
-				
-				<!-- 🔗 Live Website (external) -->
-				<a href="https://blog-yumna-155nrjch7-wisnu-yumna-yudhantas-projects.vercel.app" target="_blank" rel="noopener"
-					class="text-accent hover:underline flex items-center gap-1">
-					🔗 Live Website
-				</a>
-			</div>
-		</div>
-
-		<!-- Project Card 4 -->
-		<div
-			class="bg-[#1E293B] rounded-xl overflow-hidden shadow-md hover:shadow-accent transition duration-300 flex flex-col justify-between">
-			<img src="/assets/projects/salut/image.png" alt="Salut Doktortj" class="w-full h-52 object-cover" />
-			<div class="p-6 space-y-2 flex-grow">
-				<h3 class="text-xl font-semibold text-web3white">SALUT DOKTORTJ Website</h3>
-				<p class="text-sm text-web3white/60">Digital Education Support · 2025</p>
-				<p class="text-web3white line-clamp-3">
-					Laravel-based educational service website to support the digitalization of SALUT DOKTORTJ TEGAL.
-				</p>
-			</div>
-			<div class="px-6 pb-6">
-				<a routerLink="/projects/not-found" class="text-accent text-sm hover:underline">Read more →</a>
-			</div>
-		</div>
-
-		<!-- Project Card 5 -->
-		<div
-			class="bg-[#1E293B] rounded-xl overflow-hidden shadow-md hover:shadow-accent transition duration-300 flex flex-col justify-between">
-			<img src="/assets/projects/bookingps/image.png" alt="Bookingps" class="w-full h-52 object-cover" />
-			<div class="p-6 space-y-2 flex-grow">
-				<h3 class="text-xl font-semibold text-web3white">Rental PS Booking System</h3>
-				<p class="text-sm text-web3white/60">Online PlayStation Rental with Midtrans Payment · 2025</p>
-				<p class="text-web3white line-clamp-3">
-					Laravel-based PS4/PS5 rental application with online booking system and automatic payment integration via Midtrans.
-				</p>
-			</div>
-			<div class="px-6 pb-6">
-				<a routerLink="/projects/not-found" class="text-accent text-sm hover:underline">Read more →</a>
-			</div>
-		</div>
-
-		<!-- Project Card 6 -->
-		<div
-			class="bg-[#1E293B] rounded-xl overflow-hidden shadow-md hover:shadow-accent transition duration-300 flex flex-col justify-between">
-			<img src="/assets/projects/movie/image.png" alt="Movie" class="w-full h-52 object-cover" />
-
-			<div class="p-6 space-y-2 flex-grow">
-				<h3 class="text-xl font-semibold text-web3white">Web Movie Explorer</h3>
-				<p class="text-sm text-web3white/60">Movie Discovery Platform · 2025</p>
-				<p class="text-web3white line-clamp-3">
-					Web movie explorer using Laravel 5.8 & OMDb API to search movies by genre/year, with responsive UI based on
-					Tailwind.
-				</p>
-			</div>
-
-			<div class="px-6 pb-6 flex justify-between items-center text-sm">
-				<!-- 🡒 Read More (internal router) -->
-				<a routerLink="/projects/not-found" class="text-accent hover:underline">
-					Read more →
-				</a>
-
-				<!-- 🔗 Live Website (external) -->
-				<a href="https://movie.documentme.my.id" target="_blank" rel="noopener"
-					class="text-accent hover:underline flex items-center gap-1">
-					🔗 Live Website
-				</a>
-			</div>
-		</div>
-	</div>
+  <!-- Pagination Controls -->
+  <div class="flex justify-center items-center gap-4 mt-8">
+    <button
+      (click)="prevPage()"
+      [disabled]="page === 1"
+      class="px-4 py-2 rounded bg-accent text-white font-semibold disabled:opacity-50 transition"
+    >
+      Prev
+    </button>
+    <span class="text-web3white/80 font-semibold">
+      Page {{ page }} of {{ totalPages }}
+    </span>
+    <button
+      (click)="nextPage()"
+      [disabled]="page === totalPages"
+      class="px-4 py-2 rounded bg-accent text-white font-semibold disabled:opacity-50 transition"
+    >
+      Next
+    </button>
+  </div>
 </section>

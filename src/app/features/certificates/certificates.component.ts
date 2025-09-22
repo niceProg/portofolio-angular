@@ -15,6 +15,12 @@ export class CertificatesComponent {
 
   certificates = [
     {
+      title: 'Code Generation and Optimization Using IBM Granite',
+      issuer: 'Creadly',
+      year: '2025',
+      images: ['/assets/certificates/ibm/IBMDesign20250922-31-xrihux-1.png'],
+    },
+    {
       title: 'Introduciton to DevOps: Roadmap to DevOps Career',
       issuer: 'Udemy',
       year: '2025',
