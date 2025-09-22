@@ -1,262 +1,170 @@
 <section class="max-w-6xl mx-auto px-6 py-12 space-y-16 animate-fade-in">
-	<!-- Ringkasan Profesional -->
-	<div class="space-y-4">
-		<h2 class="text-3xl font-extrabold text-accent tracking-wide transition duration-300 hover:scale-105">
-			Professional Summary
-		</h2>
-		<p class="text-lg text-web3white leading-relaxed">
-			I’m <span class="text-accent font-bold">Wisnu Yumna Yudhanta</span>, a tech enthusiast with deep interests in
-			application development, data processing, and UI/UX design. Experienced as a Fullstack Developer and Data Engineer,
-			I’m capable of working independently or collaboratively. I'm known for adaptability, strong analytical thinking, and
-			effective communication. I always aim to deliver clean, efficient, and impactful solutions. Because building tech
-			isn't just about code, it’s about delivering real value.
-		</p>
-	</div>
+  <!-- Ringkasan Profesional -->
+  <div class="space-y-4">
+    <h2
+      class="text-3xl font-extrabold text-accent tracking-wide transition duration-300 hover:scale-105"
+    >
+      Professional Summary
+    </h2>
+    <div
+      class="bg-[#1E293B] p-6 rounded-xl shadow-md hover:shadow-accent transition duration-300"
+    >
+      <p class="text-lg text-web3white leading-relaxed">
+        <span class="text-accent font-bold"
+          >Experienced Fullstack Developer</span
+        >
+        with the ability to develop applications from start to finish, as well
+        as design engaging and user-friendly UI/UX. Possesses strong analytical
+        skills, excellent communication, and quick adaptability. Always open to
+        collaboration, sharing ideas, and seeking new opportunities to grow and
+        contribute in dynamic environments.
+      </p>
+    </div>
+  </div>
 
-	<!-- Education -->
-	<div class="space-y-4">
-		<h2 class="text-3xl font-extrabold text-accent tracking-wide transition duration-300 hover:scale-105">
-			Education
-		</h2>
-		<div class="bg-[#1E293B] p-5 rounded-xl text-web3white shadow-md hover:shadow-accent transition duration-300">
-			<p class="text-lg font-semibold">Bachelor's Degre Informatics Engineering, Politeknik Harapan Bersama</p>
-			<p class="text-sm opacity-70">Graduated: 24 August 2023</p>
-		</div>
-	</div>
+  <!-- Education -->
+  <div class="space-y-4">
+    <h2
+      class="text-3xl font-extrabold text-accent tracking-wide transition duration-300 hover:scale-105"
+    >
+      Education
+    </h2>
+    <div
+      class="bg-[#1E293B] p-5 rounded-xl text-web3white shadow-md hover:shadow-accent transition duration-300"
+    >
+      <p class="text-lg font-semibold">
+        Bachelor's Degre Informatics Engineering, Politeknik Harapan Bersama
+      </p>
+      <p class="text-sm opacity-70">Graduated: 24 August 2023</p>
+    </div>
+  </div>
 
-	<!-- Pengalaman Relevan -->
-	<div class="relative max-w-6xl mx-auto px-4 py-16">
-		<h2 class="text-3xl font-extrabold text-accent text-center mb-16 transition duration-300 hover:scale-125">Relevant
-			Experience</h2>
+  <!-- Pengalaman Relevan -->
+  <div class="relative max-w-6xl mx-auto">
+    <h2
+      class="text-3xl font-extrabold text-accent transition duration-300 hover:scale-105"
+    >
+      Relevant Experience
+    </h2>
+    <div class="experience-container">
+      <div
+        class="experience-left bg-[#1E293B] p-5 rounded-xl text-web3white shadow-md hover:shadow-accent transition duration-300"
+      >
+        <div class="experience-list">
+          <div
+            class="experience-item"
+            *ngFor="let exp of experiences; let i = index"
+            [class.active]="i === selectedIndex"
+            (click)="selectExperience(i)"
+          >
+            <div class="work-info">
+              <h5>{{ exp.title }}</h5>
+              <p>{{ exp.company }}</p>
+              <p>{{ exp.period }}</p>
+              <p class="tech">{{ exp.tech }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="experience-right bg-[#1E293B] p-5 rounded-xl text-web3white shadow-md hover:shadow-accent transition duration-300"
+      >
+        <div class="flip-card" [class.flipped]="isFlipped">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="experience-detail" *ngIf="selectedExperience">
+                <h3>Details about this assignment</h3>
+                <p>
+                  {{ selectedExperience.detail || "No details available." }}
+                </p>
+                <ul>
+                  <li *ngFor="let point of selectedExperience.points">
+                    {{ point }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="experience-detail" *ngIf="nextExperience">
+                <h3>Details about this assignment</h3>
+                <p>{{ nextExperience.detail || "No details available." }}</p>
+                <ul>
+                  <li *ngFor="let point of nextExperience.points">
+                    {{ point }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-		<!-- Vertical line timeline -->
-		<div class="absolute top-[7rem] bottom-0 left-1/2 w-1 bg-accent transform -translate-x-1/2 z-0"></div>
+  <!-- Keahlian -->
+  <div class="space-y-4">
+    <h2
+      class="text-3xl font-extrabold text-accent tracking-wide transition duration-300 hover:scale-105"
+    >
+      Technical Skills
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <div
+        *ngFor="let skill of skills"
+        class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300"
+      >
+        {{ skill }}
+      </div>
+    </div>
+  </div>
 
-		<div class="relative z-10 space-y-20">
-			<!-- Timeline Item RIGHT -->
-			<div class="flex flex-col md:flex-row md:items-start md:justify-end relative">
+  <!-- Organisasi -->
+  <div class="space-y-4">
+    <h2
+      class="text-3xl font-extrabold text-accent tracking-wide transition duration-300 hover:scale-105"
+    >
+      Organization
+    </h2>
+    <div class="space-y-6">
+      <div class="bg-[#1E293B] p-5 rounded-xl text-web3white shadow-md">
+        <p class="text-lg font-semibold">TEGAL DEV</p>
+        <p class="text-sm opacity-70 mb-1">2024 – Present</p>
+        <ul class="list-disc list-inside text-base space-y-1">
+          <li>Organized community meetups and scheduled tech events.</li>
+          <li>
+            Hosted workshops like "Flutter Gemini AI" and MC-ed Tech Talks like
+            "DevOps Jargon Explained" on Discord.
+          </li>
+        </ul>
+      </div>
+      <div class="bg-[#1E293B] p-5 rounded-xl text-web3white shadow-md">
+        <p class="text-lg font-semibold">PLUGIN</p>
+        <p class="text-sm opacity-70 mb-1">2019 – 2021</p>
+        <ul class="list-disc list-inside text-base space-y-1">
+          <li>Designed web layouts using Gravit Design.</li>
+          <li>Studied Linux distribution & partition management.</li>
+          <li>
+            Coordinated mini-project teams including task breakdown and
+            presentation.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-				<div class="md:hidden flex justify-center mb-4 relative z-10">
-					<div class="w-5 h-5 bg-accent rounded-full border-4 border-web3blue"></div>
-				</div>
-
-				<div class="md:w-1/2"></div>
-				<div class="md:w-1/2 md:pl-12 relative">
-					<div class="hidden md:block absolute left-[-10px] top-2 w-5 h-5 bg-accent rounded-full border-4 border-web3blue">
-					</div>
-					<div class="bg-[#1E293B] p-6 rounded-xl shadow-md text-web3white">
-						<p class="text-lg font-semibold">Fullstack Engineer &#64; DOKTORTJ DIGITAL INSTITUTE</p>
-						<p class="text-sm opacity-70 mb-2">Nov 2024 – Feb 2025</p>
-						<ul class="list-disc list-inside text-base space-y-1">
-							<li>Controlling two company website projects and one client company website project.</li>
-							<li>Developing the company website by adding CRUD features and pages about the features being built.</li>
-							<li>Building a new website for the second portal website.</li>
-							<li>Changing the appearance of the dashboard and features and re-conceptualizing the guest
-								display to be clean and attractive.</li>
-							<li>Using Figma to create mobile app mockup designs.</li>
-							<li>Slicing mobile app mockups using Flutter technology.</li>
-							<li>Teaching as a private teacher by carrying out Scratch Programming, Flutter
-								Intermediate, Web Programming materials.
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<!-- Timeline Item LEFT -->
-			<div class="flex flex-col md:flex-row md:items-start relative">
-				<div class="md:w-1/2 md:pr-12 relative">
-
-					<div class="md:hidden flex justify-center mb-4 relative z-10">
-						<div class="w-5 h-5 bg-accent rounded-full border-4 border-web3blue"></div>
-					</div>
-
-					<div class="hidden md:block absolute right-[-10px] top-2 w-5 h-5 bg-accent rounded-full border-4 border-web3blue">
-					</div>
-					<div class="bg-[#1E293B] p-6 rounded-xl shadow-md text-web3white">
-						<p class="text-lg font-semibold">Data Engineer &#64; GOLKAR DKI</p>
-						<p class="text-sm opacity-70 mb-2">Dec 2023 – Mar 2024</p>
-						<ul class="list-disc list-inside text-base space-y-1">
-							<li>Manage and operate data entry systems efficiently to support information needs, ensure data processing and
-								retrieval</li>
-							<li>Utilize Python and web scraping methods to obtain detailed population data from the
-								Cek DPT Online website, automate the data collection process to be more effective and
-								neat.</li>
-							<li>Implement program logic for valid data, involving data filters and duplicate data, to
-								store clear and valid datasets, as needed and create reports using excel bar charts.</li>
-							<li>Develop and optimize each VPS to automate information searches, reduce human error (data typos) and increase
-								effectiveness in handling large-scale data sets.</li>
-							<li>Successfully collected, compiled, and reused so that 25,000 data entries were collected for 2 weeks.</li>
-						</ul>
-					</div>
-				</div>
-				<div class="md:w-1/2"></div>
-			</div>
-
-			<!-- Timeline Item RIGHT -->
-			<div class="flex flex-col md:flex-row md:items-start md:justify-end relative">
-				<div class="md:w-1/2"></div>
-				<div class="md:w-1/2 md:pl-12 relative">
-					<div class="md:hidden flex justify-center mb-4 relative z-10">
-						<div class="w-5 h-5 bg-accent rounded-full border-4 border-web3blue"></div>
-					</div>
-
-					<div class="hidden md:block absolute left-[-10px] top-2 w-5 h-5 bg-accent rounded-full border-4 border-web3blue">
-					</div>
-
-					<div class="bg-[#1E293B] p-6 rounded-xl shadow-md text-web3white">
-						<p class="text-lg font-semibold">Final Project &#64; POLITEKNIK PURBAYA</p>
-						<p class="text-sm opacity-70 mb-2">May 2023 – Aug 2023</p>
-						<ul class="list-disc list-inside text-base space-y-1">
-							<li>Design and develop website applications independently to meet the operational needs of
-								external campus clients.</li>
-							<li>Collect system architecture, user interface, and backend flow as a whole from idea to
-								final implementation.</li>
-							<li>Develop a facial recognition model using the Haar Cascade and Local Binary Pattern
-								(LBP) methods for face recognition-based attendance features.</li>
-							<li>Create monthly and semester attendance data reports in the form of CSV and PDF file
-								outputs.</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<!-- Timeline Item LEFT -->
-			<div class="flex flex-col md:flex-row md:items-start relative">
-				<div class="md:w-1/2 md:pr-12 relative">
-					<div class="md:hidden flex justify-center mb-4 relative z-10">
-						<div class="w-5 h-5 bg-accent rounded-full border-4 border-web3blue"></div>
-					</div>
-
-					<div class="hidden md:block absolute right-[-10px] top-2 w-5 h-5 bg-accent rounded-full border-4 border-web3blue">
-					</div>
-
-					<div class="bg-[#1E293B] p-6 rounded-xl shadow-md text-web3white">
-						<p class="text-lg font-semibold">Fullstack Developer &#64; PT Central Artificial Intelligence</p>
-						<p class="text-sm opacity-70 mb-2">Aug 2022 – Jan 2023</p>
-						<ul class="list-disc list-inside text-base space-y-1">
-							<li>Performing design slicing to create a website dashboard interface from Figma into
-								HTML, CSS, and some connections with javascript.</li>
-							<li>Performing REST API integration and testing.</li>
-							<li>Creating a mobile app prototype using Figma.</li>
-							<li>Creating a page design per film route and performing website slicing using Flask.</li>
-							<li>Integrated CI/CD pipelines with automated testing frameworks, advancing deployment reliability and
-								accelerating feature release cycles for mission-critical web applications.</li>
-						</ul>
-					</div>
-				</div>
-				<div class="md:w-1/2"></div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Keahlian -->
-	<div class="space-y-4">
-		<h2 class="text-3xl font-extrabold text-accent tracking-wide transition duration-300 hover:scale-105">
-			Technical Skills
-		</h2>
-		<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				Python
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				PHP
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				JavaScript
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				MySQL
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				Redis
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				MongoDB
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				Laravel
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				Flutter
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				Tailwind CSS
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				Bootstrap 5 CSS
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				TensorFlow
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				OpenCV
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				Face Recognition
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				Selenium
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				Linux Server / VPS
-			</div>
-			<div
-				class="bg-[#1E293B] p-4 rounded-xl text-center text-web3white shadow-md hover:shadow-accent transition duration-300">
-				Figma
-			</div>
-		</div>
-	</div>
-
-	<!-- Organisasi -->
-	<div class="space-y-4">
-		<h2 class="text-3xl font-extrabold text-accent tracking-wide transition duration-300 hover:scale-105">
-			Organization</h2>
-		<div class="space-y-6">
-			<div class="bg-[#1E293B] p-5 rounded-xl text-web3white shadow-md">
-				<p class="text-lg font-semibold">TEGAL DEV</p>
-				<p class="text-sm opacity-70 mb-1">2024 – Present</p>
-				<ul class="list-disc list-inside text-base space-y-1">
-					<li>Organized community meetups and scheduled tech events.</li>
-					<li>Hosted workshops like "Flutter Gemini AI" and MC-ed Tech Talks like "DevOps Jargon Explained" on Discord.</li>
-				</ul>
-			</div>
-			<div class="bg-[#1E293B] p-5 rounded-xl text-web3white shadow-md">
-				<p class="text-lg font-semibold">PLUGIN</p>
-				<p class="text-sm opacity-70 mb-1">2019 – 2021</p>
-				<ul class="list-disc list-inside text-base space-y-1">
-					<li>Designed web layouts using Gravit Design.</li>
-					<li>Studied Linux distribution & partition management.</li>
-					<li>Coordinated mini-project teams including task breakdown and presentation.</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<!-- Keterampilan Tambahan -->
-	<div class="space-y-4">
-		<h2 class="text-3xl font-extrabold text-accent tracking-wide transition duration-300 hover:scale-105">
-			Additional Skills
-		</h2>
-		<ul class="list-disc list-inside text-web3white text-base space-y-1">
-			<li>Strong analytical thinking & problem-solving.</li>
-			<li>Clear communication and team collaboration.</li>
-			<li>Flexible, adaptive personality and fast learner in dynamic environments.</li>
-		</ul>
-	</div>
+  <!-- Keterampilan Tambahan -->
+  <div class="space-y-4">
+    <h2
+      class="text-3xl font-extrabold text-accent tracking-wide transition duration-300 hover:scale-105"
+    >
+      Additional Skills
+    </h2>
+    <ul class="list-disc list-inside text-web3white text-base space-y-1">
+      <li>Strong analytical thinking & problem-solving.</li>
+      <li>Clear communication and team collaboration.</li>
+      <li>
+        Flexible, adaptive personality and fast learner in dynamic environments.
+      </li>
+    </ul>
+  </div>
 </section>
