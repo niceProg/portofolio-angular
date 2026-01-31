@@ -1,5 +1,5 @@
 <!-- 💬 Floating Button -->
-<button (click)="toggleChat()" class="bg-accent p-4 rounded-full shadow-lg hover:scale-110 transition-all">
+<button (click)="toggleChat()" class="bg-slate-900 p-4 rounded-full shadow-sm hover:bg-slate-800 transition-all">
 	<svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
 		<path
 			d="M12 3C7.03 3 3 6.58 3 11c0 1.61.61 3.09 1.64 4.33L3 21l6.14-1.7c.93.26 1.91.4 2.86.4 4.97 0 9-3.58 9-8s-4.03-9-9-9z" />
@@ -8,24 +8,24 @@
 
 <!-- 🪟 Chat Popup -->
 <div *ngIf="showChat()"
-	class="absolute bottom-16 right-0 w-80 bg-[#0f172a] text-white rounded-xl shadow-2xl overflow-hidden animate-fade-in">
-	<div class="p-4 border-b border-white/10 flex justify-between items-center">
-		<h3 class="font-semibold">AI Assistant</h3>
-		<button (click)="toggleChat()" class="text-lg font-bold hover:text-red-400 transition">&times;</button>
+	class="absolute bottom-16 right-0 w-[90vw] max-w-xs sm:w-80 bg-white text-slate-900 rounded-xl shadow-xl overflow-hidden border border-slate-200 animate-fade-in">
+	<div class="p-4 border-b border-slate-200 flex justify-between items-center">
+		<h3 class="font-semibold text-base">AI Assistant</h3>
+		<button (click)="toggleChat()" class="text-lg font-bold text-slate-500 hover:text-slate-900 transition">&times;</button>
 	</div>
 
-	<div #chatMessages class="overflow-y-auto max-h-72 p-4 space-y-3 text-sm bg-[#1e293b]">
+	<div #chatMessages class="overflow-y-auto max-h-72 p-4 space-y-3 text-base bg-white">
 		<ng-container *ngFor="let msg of conversation(); let last = last">
 			<!-- 💬 USER -->
 			<div class="flex justify-end">
-				<div class="bg-green-500 text-white px-4 py-2 rounded-2xl rounded-br-none max-w-[75%] text-sm shadow">
+				<div class="bg-slate-900 text-white px-4 py-2 rounded-2xl rounded-br-none max-w-[80%] text-base shadow-sm">
 					{{ msg . user }}
 				</div>
 			</div>
 
 			<!-- 🤖 BOT -->
 			<div class="flex justify-start">
-				<div class="bg-gray-700 text-white px-4 py-2 rounded-2xl rounded-bl-none max-w-[75%] text-sm shadow">
+				<div class="bg-slate-100 text-slate-800 px-4 py-2 rounded-2xl rounded-bl-none max-w-[80%] text-base shadow-sm">
 					<ng-container *ngIf="last && isTyping(); else finalText">
 						{{ typingBuffer() }}<span class="animate-pulse">█</span>
 					</ng-container>
@@ -35,10 +35,10 @@
 		</ng-container>
 	</div>
 
-	<form (submit)="send()" class="flex p-2 gap-2 border-t border-white/10 bg-[#0f172a]">
+	<form (submit)="send()" class="flex p-2 gap-2 border-t border-slate-200 bg-white">
 		<input [(ngModel)]="input" name="input"
-			class="flex-grow bg-white/10 px-3 py-2 rounded text-white placeholder-white/60 focus:outline-none text-sm"
+			class="flex-grow bg-white px-3 py-2 rounded border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none text-base"
 			placeholder="Type a message..." />
-		<button type="submit" class="bg-accent px-3 py-2 rounded hover:bg-accent/80 transition">Send</button>
+		<button type="submit" class="bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 transition text-base">Send</button>
 	</form>
 </div>

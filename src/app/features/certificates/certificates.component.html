@@ -1,26 +1,26 @@
-<section class="max-w-6xl mx-auto px-4 py-12 animate-fade-in">
-	<h2 class="text-3xl font-extrabold text-accent text-center mb-8">Certificates</h2>
+<section class="max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-16 animate-fade-in">
+	<h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 text-center mb-8">Certificates</h2>
 
-	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-7">
 		<!-- Certificate Card -->
 		<div *ngFor="let cert of certificates; let i = index"
-			class="bg-[#1E293B] rounded-lg overflow-hidden shadow-md hover:shadow-accent transform hover:scale-105 transition duration-300 cursor-pointer"
+			class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transform hover:scale-105 transition duration-300 cursor-pointer"
 			(click)="openModal(i)">
 			<img [src]="cert.images[0]" [alt]="cert.title" class="w-full h-48 object-cover" />
-			<div class="p-4">
-				<h3 class="text-lg font-semibold text-white">{{ cert . title }}</h3>
-				<p class="text-sm text-white/60">{{ cert . issuer }} · {{ cert . year }}</p>
+			<div class="p-5 sm:p-6">
+				<h3 class="text-base sm:text-lg font-semibold text-slate-900">{{ cert . title }}</h3>
+				<p class="text-sm sm:text-base text-slate-500">{{ cert . issuer }} · {{ cert . year }}</p>
 			</div>
 		</div>
 	</div>
 
 	<!-- 🪟 Modal -->
-	<div *ngIf="showModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center"
+	<div *ngIf="showModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center"
 		(click)="closeModal()">
-		<div class="bg-[#0F172A] max-w-4xl w-full rounded-lg overflow-hidden shadow-xl relative p-6"
+		<div class="bg-white max-w-4xl w-full rounded-2xl overflow-hidden shadow-xl relative p-5 sm:p-6 border border-slate-200"
 			(click)="$event.stopPropagation()">
 			<!-- Close button -->
-			<button (click)="closeModal()" class="absolute top-5 right-8 text-red-600 text-4xl font-bold">&times;</button>
+			<button (click)="closeModal()" class="absolute top-5 right-8 text-slate-500 text-4xl font-bold hover:text-slate-900 transition">&times;</button>
 
 			<!-- Main Certificate Image -->
 			<img *ngIf="!isFading" [src]="currentImage"
@@ -33,7 +33,7 @@
 				<img *ngFor="let img of certificates[selectedIndex].images" [src]="img"
 					(click)="updateMainImage(selectedIndex, img)" [class.border-accent]="img === currentImage"
 					[class.opacity-70]="img !== currentImage"
-					class="w-16 h-12 object-cover cursor-pointer border-2 transition-opacity duration-300" />
+					class="w-16 h-12 object-cover cursor-pointer border-2 border-slate-200 transition-opacity duration-300" />
 			</div>
 		</div>
 	</div>
