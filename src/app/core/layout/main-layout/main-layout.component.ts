@@ -7,9 +7,6 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ChatbotComponent } from '../../../features/chatbot/chatbot.component';
 
-import { VisitorService } from '../../services/visitor.service';
-import reportWebVitals from '@vercel/speed-insights';
-
 @Component({
   selector: 'app-main-layout',
   standalone: true,
@@ -29,17 +26,9 @@ export class MainLayoutComponent implements OnInit {
 
   private platformId = inject(PLATFORM_ID);
 
-  constructor(private visitorService: VisitorService) {}
-
   async ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      // 🧠 Hitung kunjungan unik
-      await this.visitorService.countUniqueVisit();
-      const count = await this.visitorService.getVisitorCount();
-      this.visitorCount.set(count);
-
-      // ⚡️ Web Vitals untuk Vercel Analytics
-      reportWebVitals.injectSpeedInsights();
+      this.visitorCount.set(0);
     }
   }
 
