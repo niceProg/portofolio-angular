@@ -8,6 +8,12 @@ interface ContributionCell {
   tooltip: string;
 }
 
+interface AchievementBadge {
+  name: string;
+  slug: string;
+  imageUrl: string;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -23,9 +29,11 @@ export class HomeComponent implements OnInit {
   totalContributions = 0;
   weeks: Array<Array<ContributionCell | null>> = [];
   monthLabels: string[] = [];
+  achievementBadges: AchievementBadge[] = [];
 
   async ngOnInit(): Promise<void> {
     this.buildCalendar(new Map<string, number>());
+    this.achievementBadges = this.getAchievementBadges(this.githubUsername);
 
     if (!isPlatformBrowser(this.platformId)) {
       this.isLoading = false;
@@ -264,4 +272,36 @@ export class HomeComponent implements OnInit {
     return null;
   }
 
+  private getAchievementBadges(username: string): AchievementBadge[] {
+    const badgeSets: Record<string, AchievementBadge[]> = {
+      niceprog: [
+        {
+          name: 'YOLO',
+          slug: 'yolo',
+          imageUrl:
+            'https://github.com/Schweinepriester/github-profile-achievements/raw/main/images/yolo-default.png',
+        },
+        {
+          name: 'Pull Shark',
+          slug: 'pull-shark',
+          imageUrl:
+            'https://github.com/Schweinepriester/github-profile-achievements/raw/main/images/pull-shark-default.png',
+        },
+        {
+          name: 'Quickdraw',
+          slug: 'quickdraw',
+          imageUrl:
+            'https://github.com/Schweinepriester/github-profile-achievements/raw/main/images/quickdraw-default.png',
+        },
+        {
+          name: 'Arctic Code Vault Contributor',
+          slug: 'arctic-code-vault-contributor',
+          imageUrl:
+            'https://github.com/Schweinepriester/github-profile-achievements/raw/main/images/arctic-code-vault-contributor-default.png',
+        },
+      ],
+    };
+
+    return badgeSets[username.toLowerCase()] ?? [];
+  }
 }

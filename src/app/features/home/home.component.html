@@ -114,6 +114,39 @@
       </ng-container>
     </div>
   </section>
+
+  <section
+    class="github-achievements-wrap mt-6 w-full"
+    *ngIf="achievementBadges.length > 0"
+  >
+    <div class="github-achievements-inline">
+      <p class="github-achievements-title">Achievements</p>
+      <div class="github-achievements-list">
+        <a
+          *ngFor="let badge of achievementBadges"
+          [href]="
+            'https://github.com/' +
+            githubUsername +
+            '?achievement=' +
+            badge.slug +
+            '&tab=achievements'
+          "
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="badge.name"
+          [attr.title]="badge.name"
+          class="github-achievement-link"
+        >
+          <img
+            [src]="badge.imageUrl"
+            [alt]="badge.name"
+            class="github-achievement-image"
+            loading="lazy"
+          />
+        </a>
+      </div>
+    </div>
+  </section>
 </section>
 
 <ng-template #syncError>

@@ -10,9 +10,23 @@ import { CommonModule } from '@angular/common';
 export class AboutComponent {
   experiences = [
     {
+      title: 'Freelancer Based Projects Software Engineer',
+      company: 'Dragonfortune.ai Surabaya',
+      period: 'August 2025 - Present',
+      tech: 'Python, CLI, Machine Learning, Quantconnect, Server Deployment, Scraping, Automation, Docker, Github',
+      detail:
+        'Freelance software engineer focused on data scraping automation, server provisioning, and machine learning experimentation for crypto analytics workflows.',
+      points: [
+        'Performing crypto data scraping on several platforms such as Coinglass, CryptoQuant, Hyblock, and TensorCharts.',
+        'Performing server setup using WHCP and aaPanel.',
+        'Creating shell scripts for Docker-based scraping automation.',
+        'Conducting trial-and-error training using the XGBoost model and tuning multiple models until backtest results are satisfactory.',
+      ],
+    },
+    {
       title: 'Internship Fullstack Engineer',
       company: 'DOKTORTJ DIGITAL INSTITUTE',
-      period: 'November 2024 - April 2025',
+      period: 'November 2024 - January 2025',
       tech: 'PHP, Laravel, Midtrans, Flutter, Production Deployment Cpanel',
       detail:
         'Experienced developer specializing in company website development, UI/UX redesign for SMEs, IoT mobile app prototyping with Flutter, and active as a tech tutor and speaker.',
