@@ -1,0 +1,165 @@
+.github-calendar-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.github-calendar-card {
+  width: min(100%, 780px);
+  border: 1px solid #30363d;
+  background: #0d1117;
+  border-radius: 8px;
+  padding: 16px;
+  color: #c9d1d9;
+  text-align: left;
+}
+
+.github-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.github-calendar-header a {
+  color: #8b949e;
+  text-decoration: none;
+}
+
+.github-calendar-header a:hover {
+  color: #c9d1d9;
+}
+
+.calendar-scroll {
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.calendar-months {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.calendar-month-spacer {
+  width: 32px;
+  min-width: 32px;
+}
+
+.calendar-month-grid {
+  display: flex;
+  gap: 3px;
+  min-width: max-content;
+}
+
+.calendar-month-grid span {
+  width: 10px;
+  color: #8b949e;
+  font-size: 12px;
+}
+
+.calendar-grid-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.calendar-day-labels {
+  width: 32px;
+  min-width: 32px;
+  display: grid;
+  grid-template-rows: repeat(7, 10px);
+  gap: 3px;
+  color: #8b949e;
+  font-size: 12px;
+  line-height: 10px;
+}
+
+.calendar-weeks {
+  display: flex;
+  gap: 3px;
+  min-width: max-content;
+}
+
+.calendar-week {
+  display: grid;
+  grid-template-rows: repeat(7, 10px);
+  gap: 3px;
+}
+
+.calendar-day {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: #161b22;
+}
+
+.day-empty {
+  opacity: 0.4;
+}
+
+.level-0 {
+  background: #161b22;
+}
+
+.level-1 {
+  background: #0e4429;
+}
+
+.level-2 {
+  background: #006d32;
+}
+
+.level-3 {
+  background: #26a641;
+}
+
+.level-4 {
+  background: #39d353;
+}
+
+.calendar-loading {
+  opacity: 0.75;
+}
+
+.calendar-legend {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.calendar-legend-help {
+  white-space: nowrap;
+}
+
+.calendar-legend-scale {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.github-calendar-error {
+  color: #f87171;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .github-calendar-card {
+    padding: 12px;
+  }
+
+  .github-calendar-header {
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+
+  .calendar-legend {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}

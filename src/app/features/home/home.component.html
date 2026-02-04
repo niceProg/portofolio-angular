@@ -47,4 +47,77 @@
       View Projects
     </a>
   </div>
+
+  <section class="github-calendar-wrap mt-10 w-full">
+    <div class="github-calendar-card">
+      <div class="github-calendar-header">
+        <p>{{ totalContributions }} contributions in the last year</p>
+        <a
+          [href]="'https://github.com/' + githubUsername"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contribution settings
+        </a>
+      </div>
+
+      <ng-container *ngIf="!hasError; else syncError">
+        <div class="calendar-scroll">
+          <div class="calendar-months">
+            <span class="calendar-month-spacer"></span>
+            <div class="calendar-month-grid">
+              <span *ngFor="let month of monthLabels">{{ month }}</span>
+            </div>
+          </div>
+
+          <div class="calendar-grid-row">
+            <div class="calendar-day-labels">
+              <span></span>
+              <span>Mon</span>
+              <span></span>
+              <span>Wed</span>
+              <span></span>
+              <span>Fri</span>
+              <span></span>
+            </div>
+
+            <div class="calendar-weeks" [class.calendar-loading]="isLoading">
+              <div class="calendar-week" *ngFor="let week of weeks">
+                <span
+                  *ngFor="let day of week"
+                  class="calendar-day"
+                  [class.day-empty]="!day"
+                  [class.level-0]="day?.level === 0"
+                  [class.level-1]="day?.level === 1"
+                  [class.level-2]="day?.level === 2"
+                  [class.level-3]="day?.level === 3"
+                  [class.level-4]="day?.level === 4"
+                  [attr.title]="day ? day.tooltip : ''"
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calendar-legend">
+          <span class="calendar-legend-help">Learn how we count contributions</span>
+          <div class="calendar-legend-scale">
+            <span>Less</span>
+            <span class="calendar-day level-0"></span>
+            <span class="calendar-day level-1"></span>
+            <span class="calendar-day level-2"></span>
+            <span class="calendar-day level-3"></span>
+            <span class="calendar-day level-4"></span>
+            <span>More</span>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </section>
 </section>
+
+<ng-template #syncError>
+  <p class="github-calendar-error">
+    GitHub contribution graph belum bisa disinkronkan saat ini.
+  </p>
+</ng-template>
