@@ -6,6 +6,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ChatbotComponent } from '../../../features/chatbot/chatbot.component';
+import { VisitorService } from '../../services/visitor.service';
 
 @Component({
   selector: 'app-main-layout',
@@ -26,9 +27,16 @@ export class MainLayoutComponent implements OnInit {
 
   private platformId = inject(PLATFORM_ID);
 
+  constructor(private visitorService: VisitorService) {}
+
   async ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.visitorCount.set(0);
+      try {
+        await this.visitorService.countUniqueVisit();
+      } finally {
+        const count = await this.visitorService.getVisitorCount();
+        this.visitorCount.set(count);
+      }
     }
   }
 
