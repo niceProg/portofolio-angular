@@ -10,5 +10,5 @@ export const environment = {
     appId: '1:22584054345:web:94c665778aecc906a4a598',
     measurementId: 'G-RS496FGR5G',
   },
-  apiChatbot: 'https://apichatbot.documentme.my.id/api/chat',
+  apiChatbot: 'https://chatme.documentme.my.id/api/chat',
 };

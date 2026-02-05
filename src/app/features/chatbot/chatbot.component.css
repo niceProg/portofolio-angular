@@ -13,13 +13,228 @@
   animation: fadeInUp 0.3s ease-out;
 }
 
-::-webkit-scrollbar {
+.chat-fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  background: #0f172a;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.chat-fab:hover {
+  transform: translateY(-2px);
+  background: #1e293b;
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.28);
+}
+
+.chat-fab svg {
+  width: 22px;
+  height: 22px;
+}
+
+.chat-panel {
+  position: absolute;
+  bottom: 64px;
+  right: 0;
+  width: min(90vw, 360px);
+  background: #fff;
+  color: #0f172a;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.14);
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  color: #fff;
+  background: #0f172a;
+}
+
+.chat-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: 2px;
+  background: #e2e8f0;
+}
+
+.chat-avatar-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #fff;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-name {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.chat-status {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.chat-close {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+  opacity: 0.9;
+}
+
+.chat-close:hover {
+  opacity: 1;
+}
+
+.chat-body {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 14px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-row {
+  display: flex;
+}
+
+.chat-row-user {
+  justify-content: flex-end;
+}
+
+.chat-row-bot {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.35;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+  word-break: break-word;
+}
+
+.bubble-user {
+  color: #fff;
+  background: #0f172a;
+  border-bottom-right-radius: 6px;
+}
+
+.bubble-bot {
+  color: #0f172a;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-bottom-left-radius: 6px;
+}
+
+.typing-caret {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-top: 1px solid #e2e8f0;
+  background: #fff;
+}
+
+.chat-input-field {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-input-field::placeholder {
+  color: #94a3b8;
+}
+
+.chat-input-field:focus {
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.3);
+}
+
+.chat-send {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  background: #0f172a;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-send:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.3);
+}
+
+.chat-send svg {
+  width: 18px;
+  height: 18px;
+}
+
+.chat-body::-webkit-scrollbar {
   width: 6px;
 }
-::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
+
+.chat-body::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.6);
+  border-radius: 6px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+
+.chat-body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 116, 139, 0.7);
 }
