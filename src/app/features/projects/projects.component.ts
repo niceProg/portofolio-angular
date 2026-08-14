@@ -9,6 +9,7 @@ interface Project {
   description: string;
   year: string;
   type: string;
+  stack?: string[];
   readMore?: string;
   liveUrl?: string;
 }
@@ -22,13 +23,63 @@ interface Project {
 export class ProjectsComponent {
   projects: Project[] = [
     {
+      title: 'ePlanning / eBudgeting Platform — DPR RI',
+      image: '/assets/projects/eplanning/image.svg',
+      alt: 'ePlanning eBudgeting DPR RI',
+      description:
+        'National-scale budget planning and realization platform for the Indonesian House of Representatives. Covers an 8-level budget structure, a 5-stage approval workflow, cash planning (SICAPING), realization reporting with 7-level drill-down, Keycloak SSO with in-app RBAC administration, and a secured provider API for other government systems.',
+      year: '2026 – Present',
+      type: 'Government Enterprise Platform',
+      stack: [
+        'Laravel 12',
+        'PHP 8.2',
+        'nwidart/laravel-modules',
+        'MySQL (multi-database)',
+        'Redis',
+        'Keycloak / OIDC',
+        'Tailwind CSS v4',
+        'Vite',
+        'Yajra DataTables',
+        'mPDF',
+        'maatwebsite/excel',
+        'Docker',
+        'GitLab CI',
+        'Kaniko',
+        'Helm',
+        'Kubernetes',
+      ],
+      readMore: '/projects/not-found',
+    },
+    {
+      title: 'Crypto Market Intelligence Dashboard',
+      image: '/assets/projects/crypto/image.svg',
+      alt: 'Crypto Market Intelligence Dashboard',
+      description:
+        'Multi-module analytics dashboard for crypto market intelligence covering derivatives, spot microstructure, on-chain metrics, ETF/institutional flow, volatility regime, macro overlay, and sentiment analysis. Built collaboratively with real-time and historical data integration.',
+      year: '2025 – 2026',
+      type: 'Crypto Analytics Dashboard',
+      stack: ['Laravel', 'REST APIs', 'MySQL', 'JavaScript', 'GitHub'],
+      readMore: '/projects/not-found',
+    },
+    {
       title: 'Chatbot with RAG',
       image: '/assets/projects/ibm/image.png',
       alt: 'IBM',
       description:
-        'A web-based AI chatbot leveraging Retrieval Augmented Generation (RAG), built with Next.js and FastAPI, integrated with IBM Granite via Replicate API. It supports Google OAuth, responsive dashboards, and ensures secure access to personalized information.',
+        'A web-based AI chatbot that provides personalized answers based on user-uploaded documents using Retrieval Augmented Generation (RAG). Features Google OAuth login, a responsive dashboard, and user data security. Deployed on a DigitalOcean VPS with Nginx reverse proxy, systemd automation, and full server monitoring via Prometheus and Grafana.',
       year: '2025',
-      type: 'Integrate Granite Instructure',
+      type: 'AI Chatbot with IBM Granite',
+      stack: [
+        'Next.js',
+        'FastAPI',
+        'IBM Granite (Replicate API)',
+        'Tailwind CSS',
+        'Google OAuth',
+        'DigitalOcean',
+        'Nginx',
+        'Prometheus',
+        'Grafana',
+      ],
       readMore: '/projects/not-found',
       liveUrl: 'https://ibmskills.documentme.my.id/',
     },
@@ -40,6 +91,7 @@ export class ProjectsComponent {
         'Web movie explorer using Laravel 5.8 & OMDb API to search movies by genre/year, with responsive UI based on Tailwind.',
       year: '2025',
       type: 'Movie Discovery Platform',
+      stack: ['Laravel 5.8', 'OMDb API', 'Tailwind CSS'],
       readMore: '/projects/not-found',
       liveUrl: 'https://movie.documentme.my.id',
     },
@@ -51,6 +103,7 @@ export class ProjectsComponent {
         'Laravel-based PS4/PS5 rental application with online booking system and automatic payment integration via Midtrans.',
       year: '2025',
       type: 'Online PlayStation Rental with Midtrans Payment',
+      stack: ['Laravel', 'Midtrans', 'MySQL'],
       readMore: '/projects/not-found',
     },
     {
@@ -61,16 +114,18 @@ export class ProjectsComponent {
         'Laravel-based educational service website to support the digitalization of SALUT DOKTORTJ TEGAL.',
       year: '2025',
       type: 'Digital Education Support',
+      stack: ['Laravel', 'MySQL', 'Bootstrap'],
       readMore: '/projects/not-found',
     },
     {
-      title: 'Personal Blog',
+      title: 'TechNova Blog Platform',
       image: '/assets/projects/blogme/image.png',
-      alt: 'Blog Me',
+      alt: 'TechNova Blog',
       description:
-        'A personal blog site built with Next.js (TypeScript) and powered by Sanity CMS for flexible and structured content management.',
+        'A modern technical blogging platform with server-side rendering, real-time content management via Sanity CMS, dark mode, smooth animations, and responsive design across all devices.',
       year: '2024',
-      type: 'Personal Blog with Next.js & Sanity CMS',
+      type: 'Technical Blog Platform',
+      stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Sanity CMS', 'Valtio'],
       readMore: '/projects/not-found',
       liveUrl:
         'https://blog-yumna-155nrjch7-wisnu-yumna-yudhantas-projects.vercel.app',
@@ -83,6 +138,7 @@ export class ProjectsComponent {
         'Django & Sastrawi based duplicate sentence detection application, generates similarity percentage and reference sources automatically.',
       year: '2024',
       type: 'Plagiarism Detection Tool',
+      stack: ['Django', 'Sastrawi', 'Python'],
       readMore: '/projects/not-found',
     },
     {
@@ -93,6 +149,7 @@ export class ProjectsComponent {
         'Digital attendance using Face Recognition & GPS, complete with dashboard and automatic report export.',
       year: '2023',
       type: 'Thesis Project',
+      stack: ['Face Recognition', 'GPS', 'Python', 'Reporting Dashboard'],
       readMore: '/projects/not-found',
     },
   ];

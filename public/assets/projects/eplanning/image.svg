@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 416" width="1120" height="416" role="img" aria-label="ePlanning eBudgeting DPR RI">
+  <defs>
+    <linearGradient id="eplanBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1120" height="416" fill="url(#eplanBg)"/>
+  <g stroke="#ffffff" stroke-opacity="0.07" stroke-width="1">
+    <path d="M0 52H1120M0 104H1120M0 156H1120M0 208H1120M0 260H1120M0 312H1120M0 364H1120"/>
+    <path d="M140 0V416M280 0V416M420 0V416M560 0V416M700 0V416M840 0V416M980 0V416"/>
+  </g>
+  <g transform="translate(514 44)" fill="none" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round">
+    <circle cx="10" cy="10" r="6" fill="#93c5fd" stroke="none"/>
+    <path d="M10 16v34h34"/>
+    <circle cx="52" cy="50" r="5" fill="#60a5fa" stroke="none"/>
+    <path d="M10 30h22"/>
+    <circle cx="40" cy="30" r="5" fill="#60a5fa" stroke="none"/>
+    <path d="M10 50v34h34"/>
+    <circle cx="52" cy="84" r="5" fill="#38bdf8" stroke="none"/>
+  </g>
+  <g text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif">
+    <text x="560" y="200" font-size="19" font-weight="600" letter-spacing="3" fill="#93c5fd">SEKRETARIAT JENDERAL DPR RI</text>
+    <text x="560" y="256" font-size="46" font-weight="700" fill="#ffffff">ePlanning / eBudgeting</text>
+    <text x="560" y="298" font-size="22" fill="#cbd5e1">8-level budget tree · 5-stage approval · Keycloak SSO</text>
+    <text x="560" y="336" font-size="19" fill="#7c93b4">Laravel 12 · MySQL multi-DB · Redis · Kubernetes</text>
+  </g>
+</svg>

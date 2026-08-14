@@ -7,7 +7,7 @@ export const appRoutes: Routes = [
     children: [
       {
         path: '',
-        title: 'Wisnu Yumna Yudhanta | Fullstack Developer Portfolio',
+        title: 'Wisnu Yumna Yudhanta | Full Stack Developer & AI/ML Engineer',
         loadComponent: () =>
           import('./features/home/home.component').then((m) => m.HomeComponent),
       },

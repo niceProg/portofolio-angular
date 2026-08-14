@@ -9,13 +9,17 @@
     >
       <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
         <span class="text-slate-900 font-semibold"
-          >Experienced Fullstack Developer</span
+          >Experienced Full Stack Developer and AI/ML Engineer</span
         >
-        with the ability to develop applications from start to finish, as well
-        as design engaging and user-friendly UI/UX. Possesses strong analytical
-        skills, excellent communication, and quick adaptability. Always open to
-        collaboration, sharing ideas, and seeking new opportunities to grow and
-        contribute in dynamic environments.
+        with a strong track record of building end-to-end applications,
+        integrating enterprise systems, and engineering scalable data platforms.
+        Currently lead developer of the Planning/eBudgeting module of ePlanning
+        at the Secretariat General of the Indonesian House of Representatives
+        (DPR RI), owning the full budgeting lifecycle, Keycloak single sign-on,
+        and integrations with six government APIs. Proficient across the full
+        stack — from Laravel and Python/FastAPI backends to Next.js frontends,
+        Kubernetes delivery, and Linux server management. Recognized for strong
+        analytical thinking, fast adaptability, and a collaborative mindset.
       </p>
     </div>
   </div>
@@ -29,9 +33,12 @@
       class="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 text-slate-700 shadow-sm hover:shadow-md transition duration-300"
     >
       <p class="text-base sm:text-lg font-semibold">
-        Bachelor's Degre Informatics Engineering, Politeknik Harapan Bersama
+        Bachelor of Applied Science, Informatics Engineering — Politeknik
+        Harapan Bersama
       </p>
-      <p class="text-sm text-slate-500">Graduated: 24 August 2023</p>
+      <p class="text-sm text-slate-500">
+        2019 – 2023 · GPA 3.22 / 4.00 · Central Java, Indonesia
+      </p>
     </div>
   </div>
 
@@ -100,12 +107,22 @@
     <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
       Technical Skills
     </h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       <div
-        *ngFor="let skill of skills"
-        class="bg-white p-4 sm:p-5 rounded-2xl text-center text-slate-700 border border-slate-200 shadow-sm hover:shadow-md transition duration-300"
+        *ngFor="let group of skillGroups"
+        class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition duration-300"
       >
-        {{ skill }}
+        <p class="text-sm font-semibold uppercase tracking-wide text-slate-500 mb-3">
+          {{ group.category }}
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span
+            *ngFor="let item of group.items"
+            class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm sm:text-base"
+          >
+            {{ item }}
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -113,17 +130,22 @@
   <!-- Organisasi -->
   <div class="space-y-4">
     <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
-      Organization
+      Community & Leadership
     </h2>
     <div class="space-y-6">
       <div class="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 text-slate-700 shadow-sm">
-        <p class="text-base sm:text-lg font-semibold">TEGAL DEV</p>
-        <p class="text-sm text-slate-500 mb-1">2024 – Present</p>
+        <p class="text-base sm:text-lg font-semibold">
+          Event Organizer & Tech Host — Tegal Dev Community
+        </p>
+        <p class="text-sm text-slate-500 mb-1">2024 – Present · Central Java</p>
         <ul class="list-disc list-inside text-base sm:text-lg space-y-1">
-          <li>Organized community meetups and scheduled tech events.</li>
           <li>
-            Hosted workshops like "Flutter Gemini AI" and MC-ed Tech Talks like
-            "DevOps Jargon Explained" on Discord.
+            Initiated and organized technical workshops on Flutter, Gemini AI,
+            and Generative AI web apps.
+          </li>
+          <li>
+            Hosted regular Tech Talk sessions on Discord, sharing industry
+            insights, trends, and best practices.
           </li>
         </ul>
       </div>
@@ -145,14 +167,15 @@
   <!-- Keterampilan Tambahan -->
   <div class="space-y-4">
     <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
-      Additional Skills
+      Core Competencies
     </h2>
-    <ul class="list-disc list-inside text-slate-700 text-base sm:text-lg space-y-1">
-      <li>Strong analytical thinking & problem-solving.</li>
-      <li>Clear communication and team collaboration.</li>
-      <li>
-        Flexible, adaptive personality and fast learner in dynamic environments.
-      </li>
-    </ul>
+    <div class="flex flex-wrap gap-2 sm:gap-3">
+      <span
+        *ngFor="let competency of coreCompetencies"
+        class="px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 text-sm sm:text-base shadow-sm"
+      >
+        {{ competency }}
+      </span>
+    </div>
   </div>
 </section>

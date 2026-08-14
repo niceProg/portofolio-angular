@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 416" width="1120" height="416" role="img" aria-label="Crypto Market Intelligence Dashboard">
+  <defs>
+    <linearGradient id="cryptoBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#134e4a"/>
+    </linearGradient>
+    <linearGradient id="cryptoFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1120" height="416" fill="url(#cryptoBg)"/>
+  <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="1">
+    <path d="M0 60H1120M0 120H1120M0 180H1120M0 240H1120M0 300H1120M0 360H1120"/>
+  </g>
+  <path d="M40 150 L160 118 L280 138 L400 78 L520 108 L640 62 L760 92 L880 48 L1000 74 L1080 40 L1080 176 L40 176 Z" fill="url(#cryptoFill)"/>
+  <path d="M40 150 L160 118 L280 138 L400 78 L520 108 L640 62 L760 92 L880 48 L1000 74 L1080 40" fill="none" stroke="#2dd4bf" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <g fill="#f59e0b" fill-opacity="0.75">
+    <rect x="154" y="162" width="12" height="30" rx="2"/>
+    <rect x="274" y="162" width="12" height="46" rx="2"/>
+    <rect x="394" y="162" width="12" height="22" rx="2"/>
+    <rect x="514" y="162" width="12" height="38" rx="2"/>
+    <rect x="634" y="162" width="12" height="18" rx="2"/>
+    <rect x="754" y="162" width="12" height="34" rx="2"/>
+    <rect x="874" y="162" width="12" height="26" rx="2"/>
+  </g>
+  <g text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif">
+    <text x="560" y="264" font-size="19" font-weight="600" letter-spacing="3" fill="#5eead4">DRAGONFORTUNE.AI</text>
+    <text x="560" y="316" font-size="42" font-weight="700" fill="#ffffff">Crypto Market Intelligence</text>
+    <text x="560" y="356" font-size="20" fill="#94a3b8">Derivatives · On-Chain · ETF Flow · Volatility · Sentiment</text>
+  </g>
+</svg>

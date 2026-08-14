@@ -27,6 +27,14 @@
         <p class="text-base sm:text-lg text-slate-700 line-clamp-3">
           {{ project.description }}
         </p>
+        <div class="flex flex-wrap gap-1.5 pt-1" *ngIf="project.stack?.length">
+          <span
+            *ngFor="let tech of project.stack"
+            class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-xs sm:text-sm"
+          >
+            {{ tech }}
+          </span>
+        </div>
       </div>
       <div
         class="px-6 sm:px-7 pb-6 sm:pb-7 flex justify-between items-center text-sm sm:text-base"
