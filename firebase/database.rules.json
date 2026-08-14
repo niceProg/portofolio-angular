@@ -1,0 +1,24 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "visitors": {
+      "count": {
+        ".read": true,
+        ".write": "newData.isNumber() && ((!data.exists() && newData.val() === 1) || newData.val() === data.val() + 1)"
+      },
+
+      "ips": {
+        ".read": false,
+        ".write": false,
+
+        "$ip": {
+          ".read": true,
+          ".write": "!data.exists() && newData.val() === true && $ip.matches(/^[0-9a-fA-F_:]{3,45}$/)",
+          ".validate": "newData.isBoolean()"
+        }
+      }
+    }
+  }
+}
