@@ -20,7 +20,7 @@ export class AboutComponent {
       period: 'April 2026 - Present',
       tech: 'Laravel 12, PHP 8.2, MySQL Multi-Database, Redis, Keycloak/OIDC, Tailwind CSS v4, Docker, Kubernetes, Helm, GitLab CI',
       detail:
-        'Solo developer of the eBudgeting module of ePlanning, the budgeting system of the Indonesian House of Representatives — a Laravel 12 modular monolith with 4 modules and 4 separate MySQL databases, covering the full budgeting lifecycle from planning to realization reporting.',
+        'Solo developer of the eBudgeting module of ePlanning, the budgeting system of the Indonesian House of Representatives, a Laravel 12 modular monolith with 4 modules and 4 separate MySQL databases, covering the full budgeting lifecycle from planning to realization reporting',
       points: [
         'Built an 8-level budget structure tree with a lazy-loaded work-tree UI, search, and bulk expand/collapse.',
         'Implemented a 5-stage approval pipeline with state transitions, cascading approvals, and server-side validation enforcing that total spend never exceeds the ceiling.',
