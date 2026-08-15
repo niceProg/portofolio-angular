@@ -35,23 +35,28 @@
 }
 .experience-item .work-info h5 {
   color: #0f172a;
-  font-size: 18px;
+  font-family: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 4px;
+  letter-spacing: -0.015em;
+  margin-bottom: 6px;
 }
 .experience-item.active .work-info h5 {
   color: #1d4ed8;
 }
 .experience-item .work-info p {
   color: #64748b;
-  font-size: 16px;
+  font-family: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
+  font-size: 12px;
+  line-height: 1.5;
   margin-bottom: 2px;
 }
 .experience-item .work-info .tech {
-  margin-top: 20px;
-  font-size: 15px;
+  margin-top: 14px;
+  font-family: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
+  font-size: 12px;
+  line-height: 1.6;
   color: #2563eb;
-  font-weight: 500;
 }
 
 .experience-right {
@@ -77,21 +82,29 @@
 
 .experience-detail h3 {
   color: #0f172a;
-  font-weight: 700;
-  font-size: 20px;
+  font-family: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.015em;
   margin-bottom: 10px;
 }
 .experience-detail p {
   color: #475569;
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.65;
+  margin-bottom: 12px;
 }
 .experience-detail ul {
   margin-left: 20px;
   color: #475569;
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1.7;
   list-style: disc;
   padding-left: 0;
+}
+
+.experience-detail li {
+  margin-bottom: 6px;
 }
 
 .flip-card {

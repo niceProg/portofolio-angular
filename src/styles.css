@@ -1,10 +1,93 @@
+/* Self-hosted variable fonts: no third-party request, no layout shift. */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/jetbrains-mono";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-     overflow-x: hidden;
-  margin: 0;
-  padding: 0;
+@layer base {
+  html,
+  body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    @apply bg-white font-sans text-base text-slate-700 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Headings default to the display face so a stray <h2> never falls back. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold text-slate-900;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-slate-900 text-white;
+  }
+}
+
+@layer components {
+  /* ---- Type roles ------------------------------------------------------ */
+
+  /* Hero name. The only 52px on the site. */
+  .t-hero {
+    @apply font-display text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900;
+  }
+
+  /* Section heading: "Professional Summary", "My Projects". */
+  .t-section {
+    @apply font-display text-2xl sm:text-3xl font-semibold text-slate-900;
+  }
+
+  /* Card and entry title. */
+  .t-title {
+    @apply font-display text-lg sm:text-xl font-semibold text-slate-900;
+  }
+
+  /* Small heading inside a card. */
+  .t-subtitle {
+    @apply font-display text-base font-semibold text-slate-900;
+  }
+
+  /* Uppercase mono label above a heading, or a category tag. */
+  .t-eyebrow {
+    @apply font-mono text-2xs font-medium uppercase text-slate-500;
+  }
+
+  /* Dates, companies, "Type · Year" — mono keeps numbers aligned. */
+  .t-meta {
+    @apply font-mono text-xs text-slate-500;
+  }
+
+  /* Reading text. */
+  .t-body {
+    @apply text-base text-slate-700;
+  }
+
+  /* Slightly larger reading text for lead paragraphs. */
+  .t-lead {
+    @apply text-lg leading-relaxed text-slate-600;
+  }
+
+  /* ---- Chips ----------------------------------------------------------- */
+
+  .chip {
+    @apply inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 font-mono text-xs text-slate-600;
+  }
+
+  .chip-outline {
+    @apply inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1.5 font-mono text-xs text-slate-600 shadow-sm;
+  }
 }

@@ -1,14 +1,14 @@
 <section class="max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-16 space-y-16 animate-fade-in">
   <!-- Ringkasan Profesional -->
   <div class="space-y-4">
-    <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
+    <h2 class="t-section">
       Professional Summary
     </h2>
     <div
       class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition duration-300"
     >
-      <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
-        <span class="text-slate-900 font-semibold"
+      <p class="t-body leading-relaxed">
+        <span class="font-display font-semibold text-slate-900"
           >Experienced Full Stack Developer and AI/ML Engineer</span
         >
         with a strong track record of building end-to-end applications,
@@ -26,17 +26,17 @@
 
   <!-- Education -->
   <div class="space-y-4">
-    <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
+    <h2 class="t-section">
       Education
     </h2>
     <div
       class="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 text-slate-700 shadow-sm hover:shadow-md transition duration-300"
     >
-      <p class="text-base sm:text-lg font-semibold">
+      <p class="t-subtitle">
         Bachelor of Applied Science, Informatics Engineering — Politeknik
         Harapan Bersama
       </p>
-      <p class="text-sm text-slate-500">
+      <p class="t-meta">
         2019 – 2023 · GPA 3.22 / 4.00 · Central Java, Indonesia
       </p>
     </div>
@@ -44,7 +44,7 @@
 
   <!-- Pengalaman Relevan -->
   <div class="relative max-w-6xl mx-auto">
-    <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
+    <h2 class="t-section">
       Relevant Experience
     </h2>
     <div class="experience-container">
@@ -104,7 +104,7 @@
 
   <!-- Keahlian -->
   <div class="space-y-4">
-    <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
+    <h2 class="t-section">
       Technical Skills
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -112,13 +112,13 @@
         *ngFor="let group of skillGroups"
         class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition duration-300"
       >
-        <p class="text-sm font-semibold uppercase tracking-wide text-slate-500 mb-3">
+        <p class="t-eyebrow block mb-3">
           {{ group.category }}
         </p>
         <div class="flex flex-wrap gap-2">
           <span
             *ngFor="let item of group.items"
-            class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm sm:text-base"
+            class="chip"
           >
             {{ item }}
           </span>
@@ -129,16 +129,16 @@
 
   <!-- Organisasi -->
   <div class="space-y-4">
-    <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
+    <h2 class="t-section">
       Community & Leadership
     </h2>
     <div class="space-y-6">
       <div class="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 text-slate-700 shadow-sm">
-        <p class="text-base sm:text-lg font-semibold">
+        <p class="t-subtitle">
           Event Organizer & Tech Host — Tegal Dev Community
         </p>
-        <p class="text-sm text-slate-500 mb-1">2024 – Present · Central Java</p>
-        <ul class="list-disc list-inside text-base sm:text-lg space-y-1">
+        <p class="t-meta mb-2 block">2024 – Present · Central Java</p>
+        <ul class="list-disc list-inside t-body space-y-1">
           <li>
             Initiated and organized technical workshops on Flutter, Gemini AI,
             and Generative AI web apps.
@@ -150,9 +150,9 @@
         </ul>
       </div>
       <div class="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 text-slate-700 shadow-sm">
-        <p class="text-base sm:text-lg font-semibold">PLUGIN</p>
-        <p class="text-sm text-slate-500 mb-1">2019 – 2021</p>
-        <ul class="list-disc list-inside text-base sm:text-lg space-y-1">
+        <p class="t-subtitle">PLUGIN</p>
+        <p class="t-meta mb-2 block">2019 – 2021</p>
+        <ul class="list-disc list-inside t-body space-y-1">
           <li>Designed web layouts using Gravit Design.</li>
           <li>Studied Linux distribution & partition management.</li>
           <li>
@@ -166,13 +166,13 @@
 
   <!-- Keterampilan Tambahan -->
   <div class="space-y-4">
-    <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
+    <h2 class="t-section">
       Core Competencies
     </h2>
     <div class="flex flex-wrap gap-2 sm:gap-3">
       <span
         *ngFor="let competency of coreCompetencies"
-        class="px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 text-sm sm:text-base shadow-sm"
+        class="chip-outline"
       >
         {{ competency }}
       </span>
