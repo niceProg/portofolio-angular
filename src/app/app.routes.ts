@@ -26,12 +26,6 @@ export const appRoutes: Routes = [
           import('./features/projects/projects.component').then(
             (m) => m.ProjectsComponent
           ),
-        children: [
-          {
-            path: 'not-found',
-            component: NotFoundComponent,
-          },
-        ],
       },
       {
         path: 'certificates',

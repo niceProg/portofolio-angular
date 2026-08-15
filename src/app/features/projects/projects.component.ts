@@ -10,7 +10,6 @@ interface Project {
   year: string;
   type: string;
   stack?: string[];
-  readMore?: string;
   liveUrl?: string;
 }
 
@@ -48,7 +47,6 @@ export class ProjectsComponent {
         'Helm',
         'Kubernetes',
       ],
-      readMore: '/projects/not-found',
     },
     {
       title: 'Crypto Market Intelligence Dashboard',
@@ -59,7 +57,6 @@ export class ProjectsComponent {
       year: '2025 – 2026',
       type: 'Crypto Analytics Dashboard',
       stack: ['Laravel', 'REST APIs', 'MySQL', 'JavaScript', 'GitHub'],
-      readMore: '/projects/not-found',
     },
     {
       title: 'Chatbot with RAG',
@@ -80,7 +77,6 @@ export class ProjectsComponent {
         'Prometheus',
         'Grafana',
       ],
-      readMore: '/projects/not-found',
       liveUrl: 'https://ibmskills.documentme.my.id/',
     },
     {
@@ -92,7 +88,6 @@ export class ProjectsComponent {
       year: '2025',
       type: 'Movie Discovery Platform',
       stack: ['Laravel 5.8', 'OMDb API', 'Tailwind CSS'],
-      readMore: '/projects/not-found',
       liveUrl: 'https://movie.documentme.my.id',
     },
     {
@@ -104,7 +99,6 @@ export class ProjectsComponent {
       year: '2025',
       type: 'Online PlayStation Rental with Midtrans Payment',
       stack: ['Laravel', 'Midtrans', 'MySQL'],
-      readMore: '/projects/not-found',
     },
     {
       title: 'SALUT DOKTORTJ Website',
@@ -115,7 +109,6 @@ export class ProjectsComponent {
       year: '2025',
       type: 'Digital Education Support',
       stack: ['Laravel', 'MySQL', 'Bootstrap'],
-      readMore: '/projects/not-found',
     },
     {
       title: 'TechNova Blog Platform',
@@ -126,7 +119,6 @@ export class ProjectsComponent {
       year: '2024',
       type: 'Technical Blog Platform',
       stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Sanity CMS', 'Valtio'],
-      readMore: '/projects/not-found',
       liveUrl:
         'https://blog-yumna-155nrjch7-wisnu-yumna-yudhantas-projects.vercel.app',
     },
@@ -139,7 +131,6 @@ export class ProjectsComponent {
       year: '2024',
       type: 'Plagiarism Detection Tool',
       stack: ['Django', 'Sastrawi', 'Python'],
-      readMore: '/projects/not-found',
     },
     {
       title: 'Employee Attendance Application',
@@ -150,7 +141,6 @@ export class ProjectsComponent {
       year: '2023',
       type: 'Thesis Project',
       stack: ['Face Recognition', 'GPS', 'Python', 'Reporting Dashboard'],
-      readMore: '/projects/not-found',
     },
   ];
 

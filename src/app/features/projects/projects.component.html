@@ -37,12 +37,9 @@
         </div>
       </div>
       <div
-        class="px-6 sm:px-7 pb-6 sm:pb-7 flex justify-between items-center text-sm sm:text-base"
-        *ngIf="project.liveUrl; else onlyReadMore"
+        class="px-6 sm:px-7 pb-6 sm:pb-7 flex justify-end items-center text-sm sm:text-base"
+        *ngIf="project.liveUrl"
       >
-        <a [routerLink]="project.readMore" class="text-accent hover:underline">
-          Read more →
-        </a>
         <a
           [href]="project.liveUrl"
           target="_blank"
@@ -52,15 +49,6 @@
           🔗 Live Website
         </a>
       </div>
-      <ng-template #onlyReadMore>
-        <div class="px-6 sm:px-7 pb-6 sm:pb-7">
-          <a
-            [routerLink]="project.readMore"
-            class="text-accent text-sm sm:text-base hover:underline"
-            >Read more →</a
-          >
-        </div>
-      </ng-template>
     </div>
   </div>
 

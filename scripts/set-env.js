@@ -1,5 +1,5 @@
 /**
- * Generates src/environtments/environments.ts from environment variables.
+ * Generates src/environments/environments.ts from environment variables.
  *
  * Runs automatically before `npm start` and `npm run build` (see the
  * prestart/prebuild scripts in package.json), so the generated file never
@@ -12,7 +12,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const TARGET = path.join(ROOT, 'src', 'environtments', 'environments.ts');
+const TARGET = path.join(ROOT, 'src', 'environments', 'environments.ts');
 
 /** Minimal .env reader so no extra dependency is needed. */
 function loadDotEnv() {
@@ -83,4 +83,4 @@ const contents =
 fs.mkdirSync(path.dirname(TARGET), { recursive: true });
 fs.writeFileSync(TARGET, contents);
 
-console.log('[set-env] wrote src/environtments/environments.ts');
+console.log('[set-env] wrote src/environments/environments.ts');

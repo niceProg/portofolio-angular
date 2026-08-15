@@ -1,59 +1,56 @@
-# PortfAngular
+# Portfolio — Wisnu Yumna Yudhanta
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+Personal portfolio built with Angular 19 (standalone components, SSR) and
+Tailwind CSS, deployed on Vercel at <https://portfolio.yum-dev.com>.
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Getting started
 
 ```bash
-ng generate component component-name
+npm ci
+cp .env.example .env    # then fill in the Firebase values
+npm start               # http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+`npm start`, `npm run build`, `npm run watch` and `npm test` each run
+`scripts/set-env.js` first, which writes `src/environments/environments.ts`
+from environment variables. That file is generated and gitignored — never
+edit or commit it. If a variable is missing the build stops and lists what is
+needed, instead of producing a broken bundle.
 
-```bash
-ng generate --help
+## Configuration
+
+| Variable | Purpose |
+| --- | --- |
+| `FIREBASE_*` | Realtime Database config for the visitor counter |
+| `API_CHATBOT` | Chat endpoint, defaults to the public backend |
+
+The same names must exist in Vercel under Settings → Environment Variables.
+See `.env.example` for the full list.
+
+## Layout
+
+```
+src/app/
+  core/layout/       header, footer, main layout
+  core/services/     visitor counter, chatbot client
+  features/          home, about, projects, certificates, chatbot
+  pages/not-found/   wildcard route
+public/assets/       profile photo, project covers, certificates
+firebase/            Realtime Database security rules (see its README)
+scripts/set-env.js   generates the environment file at build time
 ```
 
-## Building
+## Related repositories
 
-To build the project run:
+- [`api-chatbot-simplify`](https://github.com/niceProg/api-chatbot-simplify) —
+  the chat backend behind `API_CHATBOT`. It also holds `my-profile.json`, the
+  single source of truth for what the chatbot knows. Update the CV content
+  there, not here.
 
-```bash
-ng build
-```
+## Notes
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- The Firebase web config ships inside the JS bundle by design. Keeping it in
+  environment variables only avoids secret scanning alerts; the actual
+  protection is the database rules in `firebase/` plus HTTP referrer
+  restrictions on the key.
+- Deployment is automatic on push to `main`.
